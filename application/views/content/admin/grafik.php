@@ -26,16 +26,18 @@
               <div class="form-group">
                 <label for="">Tahun</label>
                 <select class="form-control" id="tahun_isi" name="tahun_isi">
-                  <option>2018</option>
-                  <option>2019</option>
-                  <option>2020</option>
+                <option value="&nbsp"></option>
+                  <?php foreach ($thn as $key) : ?>
+                        <option value="<?php echo $key->tahun ?>"><?php echo $key->tahun ?></option>
+                  <?php endforeach; ?>
                 </select>
                 <span class="input-group-btn">
                   <button type="submit" class="btn btn-primary">Filter</button>
                 </span>
               </div>
               <div class="card-body p-0">
-                <div id="area-spaline"></div>
+                <!-- <div id="area-spaline"></div> -->
+                <canvas id="grafikperbulan"></canvas>
               </div>
             </div>
           </div>
@@ -48,6 +50,7 @@
 </div>
 
 <!-- Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="<?php echo base_url("assets/js/vendors/Chart.min.js") ?>"></script>
 <!-- <script src="<?php echo base_url("assets/js/vendors/Chart.js") ?>"></script> -->
 <!-- <script src="<?php echo base_url("assets/js/chart/apex-chart/apex-chart.js") ?>"></script> -->
@@ -60,7 +63,7 @@
       data: {
         labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
         datasets: [{
-          label: "Grafik penjualan per Bulan",
+          label: "Grafik Produksi Jamur Tiram per Bulan",
           backgroundColor: "rgba(38, 185, 154, 0.31)",
           borderColor: "rgba(38, 185, 154, 0.7)",
           pointBorderColor: "rgba(38, 185, 154, 0.7)",
@@ -68,9 +71,10 @@
           pointHoverBackgroundColor: "#fff",
           pointHoverBorderColor: "rgba(220,220,220,1)",
           pointBorderWidth: 1,
-          data: <?php echo json_encode($tahun); ?>
+          data: <?php echo json_encode($grafik); ?>
         }]
       }
     })
   }
+          console.log("<?php echo json_encode($grafik); ?>");
 </script>

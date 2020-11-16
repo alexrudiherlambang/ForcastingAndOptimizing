@@ -18,8 +18,6 @@
           <li class="iconbar-header">Data produksi</li>
           <li><a href="<?php echo base_url("pegawai/produksi") ?>">Tambah Produksi per Hari</a></li>
           <li><a href="<?php echo base_url("pegawai/produksi") ?>">Tampilkan Semua Produksi</a></li>
-          <li><a href="<?php echo base_url("pegawai/produksi") ?>">Edit Produksi per Hari</a></li>
-          <li><a href="<?php echo base_url("pegawai/produksi") ?>">Hapus Produksi per Hari</a></li>
           <!-- <li class="iconbar-header sub-header">User</li> -->
           <!-- </li> -->
         </ul>
@@ -27,9 +25,7 @@
       <li><a class="bar-icons" href="javascript:void(0)"><i data-feather="activity"></i><span>Grafik<span></a>
         <ul class="iconbar-mainmenu custom-scrollbar">
           <li class="iconbar-header">Grafik Jamur Tiram</li>
-          <li><a href="<?php echo base_url("pegawai/grafik") ?>">Grafik Produksi</a></li>
-          <li><a href="<?php echo base_url("pegawai/grafik") ?>">Grafik Peramalan</a></li>
-          <li><a href="<?php echo base_url("pegawai/grafik") ?>">Grafik Keuntungan</a></li>
+          <li><a href="<?php echo base_url("pegawai/grafik") ?>">Grafik Produksi Per Bulan</a></li>
           <!-- <li class="iconbar-header sub-header">User</li> -->
           <!-- </li> -->
         </ul>

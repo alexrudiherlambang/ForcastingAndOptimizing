@@ -19,9 +19,7 @@ class Grafik extends CI_Controller
 		if ($this->session->userdata('status') != "Login" || $this->session->userdata("jabatan") != "Pegawai") {
 			redirect("login");
 		}
-
-		$data['thn'] = $this->GrafikModel->get_tahun();
-		
+	
 		$tahun = $this->input->post('tahun_isi');
 		if ($tahun == null) {
 			# code...
@@ -55,9 +53,12 @@ class Grafik extends CI_Controller
 				$data['grafik'][] = (float) $row['Desember'];
 			}
 		}
+		$data['thn'] = $this->GrafikModel->get_tahun();
 
+		$data['data'] = $this->GrafikModel->get_data_produksi();
+		
 		$this->load->view("partials/main/header/header_pegawai");
-		$this->load->view("content/pegawai/grafik");
+		$this->load->view("content/pegawai/grafik", $data);
 		$this->load->view("partials/main/footer");
 	}
 }

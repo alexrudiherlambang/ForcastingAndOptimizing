@@ -133,7 +133,7 @@
                   <th>Suhu Kumbung (°C)</th>
                   <th>Kelembapan (%)</th>
                   <th>Jumlah Produksi</th>
-                  <th>Action</th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -143,19 +143,11 @@
 
                   <tr>
                     <td><?php echo $no++?></td>
-                    <!-- <td><?php echo $key->id_produksi ?></td> -->
                     <td><?php echo $key->tanggal ?></td>
                     <td><?php echo $key->suhu_baglog ?></td>
                     <td><?php echo $key->suhu_kumbung ?></td>
                     <td><?php echo $key->kelembapan ?></td>
                     <td><?php echo $key->jumlah_produksi ?></td>
-                    <td>
-                      <div class="form-group">
-                        <a href="#" data-feather="edit" data-toggle="modal" data-target=".bs-example-modal-lga<?php echo $key->id_produksi ?>">Edit</a>
-
-                        <a id="id_produksi_hapus" name="id_produksi_hapus" href="#" data-toggle="modal" data-target="#delete<?php echo $key->id_produksi ?>" data-feather="trash-2">Hapus</a>
-                      </div>
-                    </td>
                   </tr>
                 <?php endforeach ?>
               </tbody>
@@ -167,8 +159,7 @@
                  <th>Suhu Baglog (°C)</th>
                  <th>Suhu Kumbung (°C)</th>
                  <th>Kelembapan (%)</th>
-                 <th>Jumlah Produksi</th>
-                 <th>Action</th>
+                 <th>Jumlah Produksi</th>  
                </tr>
              </tfoot>
            </table>
@@ -210,22 +201,3 @@
     });
 
   </script>
-  <?php foreach ($produksi as $key) : ?>
-    <div class="modal fade" id="delete<?php echo $key->id_produksi ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Hapus Data?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">INGAT !!! Data yang sudah terhapus tidak dapat di kembalikan lagi.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url("pegawai/produksi/hapus/$key->id_produksi") ?>">Hapus</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <?php endforeach ?>

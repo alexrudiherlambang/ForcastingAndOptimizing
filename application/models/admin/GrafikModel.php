@@ -12,6 +12,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			parent::__construct();
 		}
 
+		function get_data_produksi()
+		{
+			$query = $this->db->query("SELECT YEAR (tanggal) As tanggal,SUM(jumlah_produksi) AS jumlah_produksi FROM produksi GROUP BY YEAR (tanggal)");
+	
+			if ($query->num_rows() > 0) {
+				foreach ($query->result() as $data) {
+					$hasil[] = $data;
+				}
+				return $hasil;
+			}
+		}
+
 		function get_data_produksi_perbulan($tahun)
 		{
         //$query = $this->db->query("SELECT YEAR (tanggal),MONTH (tanggal) As tanggal,SUM(id_penjualan) AS total_penjualan FROM penjualan GROUP BY  MONTH (tanggal)");

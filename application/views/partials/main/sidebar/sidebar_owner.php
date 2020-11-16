@@ -68,9 +68,7 @@
       <li><a class="bar-icons" href="javascript:void(0)"><i data-feather="activity"></i><span>Grafik<span></a>
         <ul class="iconbar-mainmenu custom-scrollbar">
           <li class="iconbar-header">Grafik Jamur Tiram</li>
-          <li><a href="<?php echo base_url("admin/grafik") ?>">Grafik Produksi</a></li>
-          <li><a href="<?php echo base_url("admin/grafik") ?>">Grafik Peramalan</a></li>
-          <li><a href="<?php echo base_url("admin/grafik") ?>">Grafik Keuntungan</a></li>
+          <li><a href="<?php echo base_url("admin/grafik") ?>">Grafik Produksi Per Bulan</a></li>
           <!-- <li class="iconbar-header sub-header">User</li> -->
           <!-- </li> -->
         </ul>
