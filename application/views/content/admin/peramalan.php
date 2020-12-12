@@ -3,7 +3,7 @@
     <div class="page-header">
       <div class="row">
         <div class="col-lg-6 main-header">
-          <h2>Forcast<span>Data Peramalan</span></h2>
+          <h2>Forecast<span>Data Peramalan</span></h2>
           <h6 class="mb-0">PT Jasentra</h6>
         </div>
         <div class="col-lg-6 breadcrumb-right">     
@@ -19,13 +19,15 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="card">
+        <div class="card-header">
+          <div  class="row">
+            <a type="button" class="btn btn-pill btn-success" href="#" data-toggle="modal" data-target="#verifikasi_hitung"> Hitung Peramalan</a>
+            <a type="button" class="btn btn-pill btn-danger" href="#" data-toggle="modal" data-target="#delete_all"> Hapus Semua Data</a>
+          </div>
+        </div>
         <div class="card-body">
           <div class="dt-ext table-responsive">
             <table class="display" id="export-button">
-              <div class="row">
-                <a type="button" class="btn btn-success" href="#" data-toggle="modal" data-target="#verifikasi_hitung"> Hitung Peramalan</a>
-                <a type="button" class="btn btn-danger" href="#" data-toggle="modal" data-target="#delete_all"> Hapus Semua Data</a>
-              </div>
               <thead>
                 <tr>
                   <th>No.</th>

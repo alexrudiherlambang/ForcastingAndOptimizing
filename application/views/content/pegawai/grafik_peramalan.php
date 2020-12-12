@@ -3,7 +3,7 @@
     <div class="page-header">
       <div class="row">
         <div class="col-lg-6 main-header">
-          <h2>Grafik<span>Data Produksi</span></h2>
+          <h2>Grafik<span>Data Peramalan</span></h2>
           <h6 class="mb-0">PT Jasentra</h6>
         </div>
         <div class="col-lg-6 breadcrumb-right">     
@@ -20,7 +20,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="card">
-          <form action="<?php echo base_url("admin/grafik") ?>" method="post">
+          <form action="<?php echo base_url("pegawai/grafikperamalan") ?>" method="post">
             <div class="col-sm-12 col-xl-6 xl-100">
               <div class="card-body"> 
                 <div class="mb-2">
@@ -65,9 +65,9 @@
     new Chart(f, {
       type: "line",
       data: {
-        labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+        labels: ["Kuartal1", "Kuartal2", "Kuartal3", "Kuartal 4"],
         datasets: [{
-          label: "Grafik Produksi Jamur Tiram per Bulan",
+          label: "Grafik Peramalan Jamur Tiram per Kuartal",
           backgroundColor: "rgba(38, 185, 154, 0.31)",
           borderColor: "rgba(38, 185, 154, 0.7)",
           pointBorderColor: "rgba(38, 185, 154, 0.7)",

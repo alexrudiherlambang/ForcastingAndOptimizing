@@ -121,7 +121,7 @@
         <div class="card-body">
           <div class="dt-ext table-responsive">
             <table class="display" id="export-button">
-              <div>
+              <div class="card-body btn-showcase">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"> + Tambah Data</button>
               </div>
               <thead>

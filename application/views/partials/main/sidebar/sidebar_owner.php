@@ -46,12 +46,10 @@
           <!-- </li> -->
         </ul>
       </li>
-      <li><a class="bar-icons" href="javascript:void(0)"><i data-feather="cloud-lightning"></i><span>Forcast<span></a>
+      <li><a class="bar-icons" href="javascript:void(0)"><i data-feather="cloud-lightning"></i><span>Forecast<span></a>
         <ul class="iconbar-mainmenu custom-scrollbar">
           <li class="iconbar-header">Data Peramalan Produksi Jamur Tiram</li>
           <li><a href="<?php echo base_url("admin/peramalan") ?>">Hitung Peramalan</a></li>
-          <li><a href="<?php echo base_url("admin/peramalan") ?>">Hitung Kesalahan</a></li>
-          <li><a href="<?php echo base_url("admin/peramalan") ?>">Tampilkan Hasil Peramalan</a></li>
           <!-- <li class="iconbar-header sub-header">User</li> -->
           <!-- </li> -->
         </ul>
@@ -69,6 +67,7 @@
         <ul class="iconbar-mainmenu custom-scrollbar">
           <li class="iconbar-header">Grafik Jamur Tiram</li>
           <li><a href="<?php echo base_url("admin/grafik") ?>">Grafik Produksi Per Bulan</a></li>
+          <li><a href="<?php echo base_url("admin/grafikperamalan") ?>">Grafik Peramalan Per Kuartal</a></li>
           <!-- <li class="iconbar-header sub-header">User</li> -->
           <!-- </li> -->
         </ul>

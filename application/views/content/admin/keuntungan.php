@@ -105,14 +105,16 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <button type="button" class="btn btn-pill btn-warning" data-toggle="modal" data-target=".bs-example-modal-lg"> Hitung NK</button>
+            <button type="button" class="btn btn-pill btn-success" data-toggle="modal" data-target=".bs-example-modal-lga"> Hitung Keuntungan</button>
+            <a type="button" class="btn btn-pill btn-danger" href="#" data-toggle="modal" data-target="#delete_all"> Hapus Semua Data</a>
+          </div>
+        </div>
         <div class="card-body">
           <div class="dt-ext table-responsive">
             <table class="display" id="export-button">
-              <div class="row">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"> Hitung NK</button>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lga"> Hitung Keuntungan</button>
-                <a type="button" class="btn btn-danger" href="#" data-toggle="modal" data-target="#delete_all"> Hapus Semua Data</a>
-              </div>
               <thead>
                 <tr>
                   <th>No.</th>
