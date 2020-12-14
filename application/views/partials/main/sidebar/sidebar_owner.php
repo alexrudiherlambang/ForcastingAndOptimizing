@@ -50,6 +50,7 @@
         <ul class="iconbar-mainmenu custom-scrollbar">
           <li class="iconbar-header">Data Peramalan Produksi Jamur Tiram</li>
           <li><a href="<?php echo base_url("admin/peramalan") ?>">Hitung Peramalan</a></li>
+          <li><a href="<?php echo base_url("admin/peramalan") ?>">Tampilkan Peramalan</a></li>
           <!-- <li class="iconbar-header sub-header">User</li> -->
           <!-- </li> -->
         </ul>

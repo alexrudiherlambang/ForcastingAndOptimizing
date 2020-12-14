@@ -197,5 +197,9 @@
 		{
 			return $this->db->empty_table("kesalahan");
 		}
+		function cek_produksi()
+		{
+			return $this->db->query("SELECT MONTH(TANGGAL)as cek FROM PRODUKSI WHERE tanggal IN (SELECT MAX(TANGGAL)FROM produksi)")->result();
+		}
 	}
 ?>

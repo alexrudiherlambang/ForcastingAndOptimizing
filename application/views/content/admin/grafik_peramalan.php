@@ -65,7 +65,7 @@
     new Chart(f, {
       type: "line",
       data: {
-        labels: ["Kuartal1", "Kuartal2", "Kuartal3", "Kuartal 4"],
+        labels: ["Kuartal 1", "Kuartal 2", "Kuartal 3", "Kuartal 4"],
         datasets: [{
           label: "Grafik Peramalan Jamur Tiram per Kuartal",
           backgroundColor: "rgba(38, 185, 154, 0.31)",

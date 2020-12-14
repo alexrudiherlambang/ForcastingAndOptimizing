@@ -16,6 +16,7 @@
           <div class="form-group">
             <label class="col-form-label">Tanggal <span class="required">*</span></label>
             <input type="text" class="form-control" id="tanggal_isi" name="tanggal_isi" value="<?php echo date("Y-m-d"); ?>" readonly="readonly" required="required">
+            
           </div>
           <div class="form-group">
             <label class="col-form-label">Suhu Baglog <span class="required">*</span></label>
@@ -37,7 +38,7 @@
           <div class="ln_solid"></div>
           <div class="form-group">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" style="float: right; margin-left: 5px;" id="submit_edit" class="btn btn-success">Submit</button>
+            <button type="submit" style="float: right; margin-left: 5px;" id="submit" class="btn btn-success">Submit</button>
             <button type="reset" style="float: right;" class="btn btn-primary">Reset</button>
           </div>
         </div>
@@ -45,57 +46,6 @@
     </div>
   </div>
 </div>
-
-<?php foreach ($produksi as $key) : ?>
-  <div class="modal fade bs-example-modal-lga<?php echo $key->id_produksi ?> " tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">Edit Data Produksi</h4>
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="<?php echo base_url("pegawai/produksi/edit") ?>" method="post" class="form-horizontal form-label-left">
-            <div class="form-group">
-              <label class="col-form-label">ID Produksi</label>
-              <input type="text" class="form-control" id="id_produksi" name="id_produksi" value="<?php echo $key->id_produksi ?>" readonly="readonly" required="required">
-            </div>
-            <div class="form-group">
-              <label class="col-form-label">Tanggal <span class="required">*</span></label>
-              <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?php echo $key->tanggal ?>" readonly="readonly" required="required">
-            </div>
-            <div class="form-group">
-              <label class="col-form-label">Suhu Baglog <span class="required">*</span></label>
-              <input type="text" class="form-control" id="suhu_baglog" name="suhu_baglog" value="<?php echo $key->suhu_baglog ?>" placeholder="Suhu Baglog" required="required">
-            </div>
-            <div class="form-group">
-              <label class="col-form-label">Suhu Kumbung <span class="required">*</span></label>
-              <input type="text" class="form-control" id="suhu_kumbung" name="suhu_kumbung" value="<?php echo $key->suhu_kumbung ?>" placeholder="Suhu Kumbung" required="required">
-            </div>
-            <div class="form-group">
-              <label class="col-form-label">Kelembapan <span class="required">*</span></label>
-              <input type="text" class="form-control" id="kelembapan" name="kelembapan" value="<?php echo $key->kelembapan ?>" placeholder="Kelembapan" required="required">
-            </div>
-            <div class="form-group">
-              <label class="col-form-label">Jumlah Produksi <span class="required">*</span></label>
-              <input type="text" class="form-control" id="jumlah_produksi" name="jumlah_produksi" value="<?php echo $key->jumlah_produksi ?>" placeholder="Jumlah Produksi" required="required">
-            </div>
-            <div class="ln_solid"></div>
-            <div class="form-group">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" style="float: right; margin-left: 5px;" id="submit_edit" class="btn btn-success">Submit</button>
-              <button type="reset" style="float: right;" class="btn btn-primary">Reset</button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-
-    </div>
-  </div>
-<?php endforeach ?>
 
 <div class="page-body">
   <div class="container-fluid">
@@ -121,7 +71,7 @@
         <div class="card-body">
           <div class="dt-ext table-responsive">
             <table class="display" id="export-button">
-              <div>
+              <div class="card-body btn-showcase">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"> + Tambah Data</button>
               </div>
               <thead>
@@ -168,36 +118,3 @@
      </div>
    </div>
  </div>
-
-
- <script type="text/javascript">
-  $(document).ready(function() {
-      // alert("1");
-      $("#username_isi").on("input", function(){
-        var username = $("#username_isi").val();
-        $.ajax({
-          url: "<?php echo base_url("admin/DataUser/check") ?>",
-          type: "POST",
-          dataType: "JSON",
-          data: {
-            username: username
-          },
-          cache: false,
-          success: function(msg) {
-            if (msg.message == "True") {
-              pesan.innerHTML = "Username telah dipakai";
-              pesan.style.color = "#ff6666";
-              submit.disabled = "true"
-            } else if (msg.message == "False") {
-              pesan.innerHTML = "Username bisa dipakai";
-              pesan.style.color = "#66cc66";
-              submit.disabled = ""
-
-            }
-          }
-        });
-      })
-
-    });
-
-  </script>

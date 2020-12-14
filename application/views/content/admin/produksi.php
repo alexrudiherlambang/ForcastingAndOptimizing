@@ -15,7 +15,7 @@
           </div>
           <div class="form-group">
             <label class="col-form-label">Tanggal <span class="required">*</span></label>
-            <input type="text" class="form-control" id="tanggal_isi" name="tanggal_isi" value="<?php echo date("Y-m-d"); ?>" readonly="readonly" required="required">
+            <input type="date" class="form-control" id="tanggal_isi" name="tanggal_isi" value="<?php echo date("Y-m-d"); ?>" required="required">
           </div>
           <div class="form-group">
             <label class="col-form-label">Suhu Baglog <span class="required">*</span></label>

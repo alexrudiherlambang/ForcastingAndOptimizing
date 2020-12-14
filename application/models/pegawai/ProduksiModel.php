@@ -53,11 +53,10 @@
 			return $this->db->delete("produksi");
 		}
 
-		function check_produksiname($data)
+		function check_tanggal($tanggal)
 		{
-			return $this->db->get_where('produksi', $data);
-			;
+			$this->db->where('tanggal', $tanggal);
+			return $this->db->get('produksi');
 		}
-
 	}
 ?>

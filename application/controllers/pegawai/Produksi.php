@@ -34,42 +34,48 @@ class Produksi extends CI_Controller
 		$kelembapan = $this->input->post("kelembapan_isi");
 		$jumlah_produksi = $this->input->post("jumlah_produksi_isi");	
 
+		$check_tanggal = $this->ProduksiModel->check_tanggal($tanggal)->num_rows();
+		if ($check_tanggal > 0) {
+			echo "<script>alert('GAGAL !!! Anda Sudah Melakukan Input Data Hari Ini :)');history.go(-1);</script>";
+		}else{
+			$data = array(
+				'id_produksi' 		=> $id_produksi,
+				'tanggal'			=> $tanggal,
+				'suhu_baglog'		=> $suhu_baglog,
+				'suhu_kumbung'		=> $suhu_kumbung,
+				'kelembapan'		=> $kelembapan,
+				'jumlah_produksi'	=> $jumlah_produksi,
+			);
 
-		$data = array(
-			'id_produksi' 		=> $id_produksi,
-			'tanggal'			=> $tanggal,
-			'suhu_baglog'		=> $suhu_baglog,
-			'suhu_kumbung'		=> $suhu_kumbung,
-			'kelembapan'		=> $kelembapan,
-			'jumlah_produksi'	=> $jumlah_produksi,
-		);
+			$this->ProduksiModel->tambahdata($data);
+			redirect("pegawai/Produksi");
+		}
+		die;
 
-		$this->ProduksiModel->tambahdata($data);
-		redirect("pegawai/Produksi");
 	}
 
-	function edit()
-	{
-		$id_produksi = $this->input->post("id_produksi");
-		$tanggal = $this->input->post("tanggal");
-		$suhu_baglog = $this->input->post("suhu_baglog");
-		$suhu_kumbung = $this->input->post("suhu_kumbung");
-		$kelembapan = $this->input->post("kelembapan");
-		$jumlah_produksi = $this->input->post("jumlah_produksi");	
+	// function edit()
+	// {
+	// 	$id_produksi = $this->input->post("id_produksi");
+	// 	$tanggal = $this->input->post("tanggal");
+	// 	$suhu_baglog = $this->input->post("suhu_baglog");
+	// 	$suhu_kumbung = $this->input->post("suhu_kumbung");
+	// 	$kelembapan = $this->input->post("kelembapan");
+	// 	$jumlah_produksi = $this->input->post("jumlah_produksi");	
 
 
-		$data = array(
-			'id_produksi' 		=> $id_produksi,
-			'tanggal'			=> $tanggal,
-			'suhu_baglog'		=> $suhu_baglog,
-			'suhu_kumbung'		=> $suhu_kumbung,
-			'kelembapan'		=> $kelembapan,
-			'jumlah_produksi'	=> $jumlah_produksi,
-		);
+	// 	$data = array(
+	// 		'id_produksi' 		=> $id_produksi,
+	// 		'tanggal'			=> $tanggal,
+	// 		'suhu_baglog'		=> $suhu_baglog,
+	// 		'suhu_kumbung'		=> $suhu_kumbung,
+	// 		'kelembapan'		=> $kelembapan,
+	// 		'jumlah_produksi'	=> $jumlah_produksi,
+	// 	);
 
-		$this->ProduksiModel->editdata($data, $id_produksi);
-		redirect("pegawai/Produksi");
-	}
+	// 	$this->ProduksiModel->editdata($data, $id_produksi);
+	// 	redirect("pegawai/Produksi");
+	// }
 
 	function hapus($hapus)
 	{
@@ -80,21 +86,4 @@ class Produksi extends CI_Controller
 		redirect("pegawai/produksi");
 	}
 
-	function check()
-	{
-		$username 	= $this->input->post("username");
-		$data 		= array('username' => $username);
-
-		$proses		= $this->ProduksiModel->check_username($data)->num_rows();
-
-		if ($proses == 0) {
-			# code...
-			$message = "False";
-		} else {
-			$message = "True";
-		}
-
-		$msg = array('message' => $message);
-		echo json_encode($msg);
-	}
 }
