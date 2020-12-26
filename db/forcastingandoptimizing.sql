@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2020 at 05:07 AM
+-- Generation Time: Dec 26, 2020 at 11:10 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -33,7 +33,7 @@ CREATE TABLE `indeks_musiman` (
   `id_peramalan` varchar(5) NOT NULL,
   `tahun` int(4) NOT NULL,
   `kuartal` int(1) NOT NULL,
-  `hasil_indeks_musiman` double NOT NULL
+  `hasil_indeks_musiman` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -41,18 +41,18 @@ CREATE TABLE `indeks_musiman` (
 --
 
 INSERT INTO `indeks_musiman` (`id_indeks_musiman`, `id_peramalan`, `tahun`, `kuartal`, `hasil_indeks_musiman`) VALUES
-(171, 'Fc001', 2018, 1, 85.238235521161),
-(172, 'Fc002', 2018, 2, 96.16943029507),
-(173, 'Fc003', 2018, 3, 105.46559738695),
-(174, 'Fc004', 2018, 4, 113.12673679681),
-(175, 'Fc005', 2019, 1, 85.238235521161),
-(176, 'Fc006', 2019, 2, 96.16943029507),
-(177, 'Fc007', 2019, 3, 105.46559738695),
-(178, 'Fc008', 2019, 4, 113.12673679681),
-(179, 'Fc009', 2020, 1, 85.238235521161),
-(180, 'Fc010', 2020, 2, 96.16943029507),
-(181, 'Fc011', 2020, 3, 105.46559738695),
-(182, 'Fc012', 2020, 4, 113.12673679681);
+(303, 'Fc001', 2018, 1, 85),
+(304, 'Fc002', 2018, 2, 96),
+(305, 'Fc003', 2018, 3, 105),
+(306, 'Fc004', 2018, 4, 113),
+(307, 'Fc005', 2019, 1, 85),
+(308, 'Fc006', 2019, 2, 96),
+(309, 'Fc007', 2019, 3, 105),
+(310, 'Fc008', 2019, 4, 113),
+(311, 'Fc009', 2020, 1, 85),
+(312, 'Fc010', 2020, 2, 96),
+(313, 'Fc011', 2020, 3, 105),
+(314, 'Fc012', 2020, 4, 113);
 
 -- --------------------------------------------------------
 
@@ -65,8 +65,8 @@ CREATE TABLE `kesalahan` (
   `id_peramalan` varchar(5) NOT NULL,
   `tahun` int(4) NOT NULL,
   `kuartal` int(1) NOT NULL,
-  `nilai_MSE` double NOT NULL,
-  `nilai_MAPE` double NOT NULL
+  `nilai_MSE` int(9) NOT NULL,
+  `nilai_MAPE` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -74,18 +74,18 @@ CREATE TABLE `kesalahan` (
 --
 
 INSERT INTO `kesalahan` (`id_kesalahan`, `id_peramalan`, `tahun`, `kuartal`, `nilai_MSE`, `nilai_MAPE`) VALUES
-(157, 'Fc001', 2018, 1, 3727528.337783, 11.839330135142),
-(158, 'Fc002', 2018, 2, 4041582.5853688, 11.846390861593),
-(159, 'Fc003', 2018, 3, 3583469.3963199, 12.03582595998),
-(160, 'Fc004', 2018, 4, 4529199.4665504, 11.287404983196),
-(161, 'Fc005', 2019, 1, 3727528.337783, 11.839330135142),
-(162, 'Fc006', 2019, 2, 4041582.5853688, 11.846390861593),
-(163, 'Fc007', 2019, 3, 3583469.3963199, 12.03582595998),
-(164, 'Fc008', 2019, 4, 4529199.4665504, 11.287404983196),
-(165, 'Fc009', 2020, 1, 3727528.337783, 11.839330135142),
-(166, 'Fc010', 2020, 2, 4041582.5853688, 11.846390861593),
-(167, 'Fc011', 2020, 3, 3583469.3963199, 12.03582595998),
-(168, 'Fc012', 2020, 4, 4529199.4665504, 11.287404983196);
+(289, 'Fc001', 2018, 1, 3727788, 12),
+(290, 'Fc002', 2018, 2, 4042792, 12),
+(291, 'Fc003', 2018, 3, 3583504, 12),
+(292, 'Fc004', 2018, 4, 4529169, 11),
+(293, 'Fc005', 2019, 1, 3727788, 12),
+(294, 'Fc006', 2019, 2, 4042792, 12),
+(295, 'Fc007', 2019, 3, 3583504, 12),
+(296, 'Fc008', 2019, 4, 4529169, 11),
+(297, 'Fc009', 2020, 1, 3727788, 12),
+(298, 'Fc010', 2020, 2, 4042792, 12),
+(299, 'Fc011', 2020, 3, 3583504, 12),
+(300, 'Fc012', 2020, 4, 4529169, 11);
 
 -- --------------------------------------------------------
 
@@ -106,8 +106,8 @@ CREATE TABLE `keuntungan` (
 --
 
 INSERT INTO `keuntungan` (`id_keuntungan`, `tahun`, `kuartal`, `peramalan_produksi`, `keuntungan`) VALUES
-(2, 2020, 3, '2662.5513076444', '9824814.3252078'),
-(3, 2020, 4, '2463.199471948', '9089206.0514881');
+(6, 2020, 3, '2663', '9826470'),
+(7, 2020, 4, '2463', '9088470');
 
 -- --------------------------------------------------------
 
@@ -161,7 +161,7 @@ CREATE TABLE `peramalan` (
   `tahun` int(4) NOT NULL,
   `kuartal` int(1) NOT NULL,
   `jumlah_produksi` double NOT NULL,
-  `hasil_peramalan` double NOT NULL
+  `hasil_peramalan` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -169,18 +169,18 @@ CREATE TABLE `peramalan` (
 --
 
 INSERT INTO `peramalan` (`id_peramalan`, `tahun`, `kuartal`, `jumlah_produksi`, `hasil_peramalan`) VALUES
-('Fc001', 2018, 1, 0, 2358.3074052419),
-('Fc002', 2018, 2, 0, 2891.5833612811),
-('Fc003', 2018, 3, 0, 3362.3188421067),
-('Fc004', 2018, 4, 0, 3745.2435688032),
-('Fc005', 2019, 1, 0, 2876.3893962818),
-('Fc006', 2019, 2, 0, 3250.2141933249),
-('Fc007', 2019, 3, 0, 3507.8893808),
-('Fc008', 2019, 4, 0, 3635.6661833734),
-('Fc009', 2020, 1, 0, 2593.6102180929),
-('Fc010', 2020, 2, 0, 2705.279132442),
-('Fc011', 2020, 3, 0, 2662.5513076444),
-('Fc012', 2020, 4, 0, 2463.199471948);
+('Fc001', 2018, 1, 0, 2359),
+('Fc002', 2018, 2, 0, 2892),
+('Fc003', 2018, 3, 0, 3362),
+('Fc004', 2018, 4, 0, 3745),
+('Fc005', 2019, 1, 0, 2877),
+('Fc006', 2019, 2, 0, 3250),
+('Fc007', 2019, 3, 0, 3508),
+('Fc008', 2019, 4, 0, 3635),
+('Fc009', 2020, 1, 0, 2594),
+('Fc010', 2020, 2, 0, 2706),
+('Fc011', 2020, 3, 0, 2663),
+('Fc012', 2020, 4, 0, 2463);
 
 -- --------------------------------------------------------
 
@@ -981,7 +981,8 @@ INSERT INTO `produksi` (`id_produksi`, `tanggal`, `suhu_kumbung`, `suhu_baglog`,
 ('P00753', '2020-05-28', 26, 28, 60, 12.5),
 ('P00754', '2020-05-29', 26, 28, 60, 21.5),
 ('P00755', '2020-05-30', 26, 28, 60, 20.8),
-('P00756', '2020-05-31', 26, 28, 60, 14);
+('P00756', '2020-05-31', 26, 28, 60, 14),
+('P00757', '2020-06-30', 28, 28, 36, 1);
 
 -- --------------------------------------------------------
 
@@ -1036,7 +1037,7 @@ CREATE TABLE `trend` (
   `id_peramalan` varchar(5) NOT NULL,
   `tahun` int(4) NOT NULL,
   `kuartal` int(1) NOT NULL,
-  `hasil_trend` double NOT NULL
+  `hasil_trend` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1044,18 +1045,18 @@ CREATE TABLE `trend` (
 --
 
 INSERT INTO `trend` (`id_trend`, `id_peramalan`, `tahun`, `kuartal`, `hasil_trend`) VALUES
-(209, 'Fc001', 2018, 1, 2766.7248046875),
-(210, 'Fc002', 2018, 2, 3006.759375),
-(211, 'Fc003', 2018, 3, 3188.0716796875),
-(212, 'Fc004', 2018, 4, 3310.66171875),
-(213, 'Fc005', 2019, 1, 3374.5294921875),
-(214, 'Fc006', 2019, 2, 3379.675),
-(215, 'Fc007', 2019, 3, 3326.0982421875),
-(216, 'Fc008', 2019, 4, 3213.79921875),
-(217, 'Fc009', 2020, 1, 3042.7779296875),
-(218, 'Fc010', 2020, 2, 2813.034375),
-(219, 'Fc011', 2020, 3, 2524.5685546875),
-(220, 'Fc012', 2020, 4, 2177.38046875);
+(341, 'Fc001', 2018, 1, 2767),
+(342, 'Fc002', 2018, 2, 3007),
+(343, 'Fc003', 2018, 3, 3188),
+(344, 'Fc004', 2018, 4, 3311),
+(345, 'Fc005', 2019, 1, 3375),
+(346, 'Fc006', 2019, 2, 3380),
+(347, 'Fc007', 2019, 3, 3326),
+(348, 'Fc008', 2019, 4, 3214),
+(349, 'Fc009', 2020, 1, 3043),
+(350, 'Fc010', 2020, 2, 2813),
+(351, 'Fc011', 2020, 3, 2525),
+(352, 'Fc012', 2020, 4, 2178);
 
 -- --------------------------------------------------------
 
@@ -1080,8 +1081,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `nama_user`, `jenis_kelamin`, `alamat`, `jabatan`, `username`, `password`) VALUES
 ('JAS001', 'Muhammad Riezqi', 'Laki - Laki', 'Sumbersari - Jember', 'Admin', 'admin', '$2y$10$V7A2zFB153bZeBw.N6JG9.EgzxYwktYqgR7ukfOGruklGCH7FYjEq'),
 ('JAS002', 'Alex Rudi Herlambang', 'Laki - Laki', 'Mlokorejo, Puger - Jember', 'Pegawai', 'alex', '$2y$10$q0F/.mtlHQVrF0NHz6PnUugLDKqSi2wYjRofp6O.7OHP82hu379/6'),
-('JAS003', 'Paijo Diningratan', 'Laki - Laki', 'Jogjakarta', 'Admin', 'paijo', '$2y$10$0TAH3A99P8fy3mAP/SKRduAOMHSYis0jpp5dWS.LmTRU0kW8Omdzy'),
-('JAS004', 'Bambang', 'Laki - Laki', 'jogja', 'Pegawai', 'BAMBANG', '$2y$10$QJaUFJT7L/YaeofZ7cR0m.GWvYjAO0LSiajH7kJtDVP1w29Iqjl..');
+('JAS003', 'Paijo Diningratan', 'Laki - Laki', 'Jogjakarta', 'Admin', 'paijo', '$2y$10$0TAH3A99P8fy3mAP/SKRduAOMHSYis0jpp5dWS.LmTRU0kW8Omdzy');
 
 --
 -- Indexes for dumped tables
@@ -1165,19 +1165,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `indeks_musiman`
 --
 ALTER TABLE `indeks_musiman`
-  MODIFY `id_indeks_musiman` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+  MODIFY `id_indeks_musiman` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=315;
 
 --
 -- AUTO_INCREMENT for table `kesalahan`
 --
 ALTER TABLE `kesalahan`
-  MODIFY `id_kesalahan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id_kesalahan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 
 --
 -- AUTO_INCREMENT for table `keuntungan`
 --
 ALTER TABLE `keuntungan`
-  MODIFY `id_keuntungan` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_keuntungan` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `kuartal`
@@ -1201,7 +1201,7 @@ ALTER TABLE `skala_x`
 -- AUTO_INCREMENT for table `trend`
 --
 ALTER TABLE `trend`
-  MODIFY `id_trend` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
+  MODIFY `id_trend` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
 
 --
 -- Constraints for dumped tables
